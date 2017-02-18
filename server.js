@@ -26,10 +26,10 @@ app.use((req, res, next) => {
     })
     next();
 });
-app.use((req, res, next)=>{
-  res.render('maintainence.hbs');
-
-});
+// app.use((req, res, next)=>{
+//   res.render('maintainence.hbs');
+// //To stop showing pages, but that one
+// });
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: "Hello, stranger",
@@ -45,6 +45,12 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: "Sorry, couldn't find your page"
+    });
+});
+app.get('/cookbook', (req, res) => {
+    res.render('cookbook.hbs', {
+      pageTitle: "Das ist Kücherbuch!",
+      pageBody: "Ja, würtig!"
     });
 });
 app.listen(port, () => {
